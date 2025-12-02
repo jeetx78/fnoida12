@@ -37,7 +37,7 @@ export default function Contact() {
                 <h3 className="font-bold text-slate-800 text-white">WhatsApp Support</h3>
                 {/* Use wa.me link for direct chat */}
                 <a href="https://wa.me/919818927589" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                    +91 98189 27589 (Click to Chat)
+                    +91 98189 27581 (Click to Chat)
                 </a>
               </div>
             </div>
