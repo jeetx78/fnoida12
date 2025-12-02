@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { Facebook, Instagram, Linkedin, Twitter, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
+import { Facebook, Instagram, MapPin, Phone, Mail, ChevronRight } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -17,10 +17,8 @@ export default function Footer() {
               Your premium partner for real estate in Delhi NCR. We specialize in verified listings, transparency, and high-ROI investment opportunities across Noida and Greater Noida.
             </p>
             <div className="flex space-x-4">
-              <a href="#" className="hover:text-blue-500 transition"><Facebook size={20} /></a>
-              <a href="#" className="hover:text-blue-500 transition"><Instagram size={20} /></a>
-              <a href="#" className="hover:text-blue-500 transition"><Twitter size={20} /></a>
-              <a href="#" className="hover:text-blue-500 transition"><Linkedin size={20} /></a>
+              <a href="https://www.facebook.com/share/1H2z8NYWqM/?mibextid=wwXIfr" className="hover:text-blue-500 transition"><Facebook size={20} /></a>
+              <a href="https://www.instagram.com/futuristicnoida" className="hover:text-blue-500 transition"><Instagram size={20} /></a>
             </div>
           </div>
 
@@ -56,17 +54,7 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 3: Prime Locations */}
-          <div>
-            <h3 className="text-white font-bold text-lg mb-6">Prime Locations</h3>
-            <ul className="space-y-3">
-              <li className="hover:text-blue-500 cursor-pointer transition">Noida Expressway</li>
-              <li className="hover:text-blue-500 cursor-pointer transition">Greater Noida West</li>
-              <li className="hover:text-blue-500 cursor-pointer transition">Yamuna Expressway</li>
-              <li className="hover:text-blue-500 cursor-pointer transition">Sector 150, Noida</li>
-              <li className="hover:text-blue-500 cursor-pointer transition">Central Noida</li>
-            </ul>
-          </div>
+          
 
           {/* Column 4: Contact Info */}
           <div>
@@ -75,18 +63,18 @@ export default function Footer() {
               <div className="flex items-start">
                 <MapPin size={20} className="text-blue-500 mr-3 mt-1 flex-shrink-0" />
                 <span>
-                  B-123, Futuristic Tower,<br />
-                  Sector 62, Noida,<br />
-                  Uttar Pradesh 201309
+                  LG 16, Rise Shoplex,<br />
+                  Atul Marg, Sector 1, Greater Noida,<br />
+                  Uttar Pradesh
                 </span>
               </div>
               <div className="flex items-center">
                 <Phone size={20} className="text-blue-500 mr-3 flex-shrink-0" />
-                <span>+91 98765 43210</span>
+                <span>+91 96500 33511</span>
               </div>
               <div className="flex items-center">
                 <Mail size={20} className="text-blue-500 mr-3 flex-shrink-0" />
-                <span>sales@futuristicnoida.com</span>
+                <span>futuristicnoida@gmail.com</span>
               </div>
             </div>
           </div>

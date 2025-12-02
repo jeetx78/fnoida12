@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ShieldCheck, TrendingUp, Users, Home, CheckCircle, Search } from "lucide-react";
 
 export default function About() {
@@ -21,15 +22,19 @@ export default function About() {
       {/* 2. Mission & Transparency (The Core Value) */}
       <section className="py-16 md:py-24 container mx-auto px-4">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div className="relative h-[400px] bg-slate-200 rounded-2xl overflow-hidden">
+          <div className="relative h-[500px] bg-slate-200 rounded-2xl overflow-hidden">
              {/* Replace with a real team or office image */}
-             <div className="absolute inset-0 flex items-center justify-center bg-slate-100 text-slate-400">
-                <span className="font-semibold">Office / Team Image Placeholder</span>
-             </div>
+             {/* REAL IMAGE */}
+             <Image
+             src="/images/fnoid.jpeg"   // ✔ this path works if image is in public/images/fnoi.jpeg
+             alt="Futuristic Noida Office"
+             fill
+             className="object-cover"
+            />
              {/* Floating Badge */}
-             <div className="absolute bottom-6 left-6 bg-white p-4 rounded-xl shadow-lg max-w-xs">
+             <div className="absolute top-1 left-1 bg-white p-4 rounded-xl shadow-lg max-w-xs">
                <div className="flex items-center gap-3 mb-2">
-                 <ShieldCheck className="text-blue-600" size={24} />
+                 <ShieldCheck className="text-blue-300" size={24} />
                  <span className="font-bold text-slate-800">100% Verified</span>
                </div>
                <p className="text-xs text-slate-500">Every listing on our platform undergoes a strict legal and physical verification process.</p>

@@ -1,20 +1,30 @@
-import { developers } from "@/lib/data";
+import { developers } from "@/lib/data";// Use relative path for safety
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import ProjectCard from "../../components/ProjectCard";
 import { Building2, ArrowLeft, MapPin, CheckCircle } from "lucide-react";
 
-interface PageProps {
-  params: { slug: string };
-}
+// 🛠️ FIX 1: The component must be async
+export default async function DeveloperPage({ 
+  params 
+}: { 
+  // 🛠️ FIX 2: params must be defined as a Promise in Next.js 15/16
+  params: Promise<{ slug: string }>; 
+}) {
+  
+  // 🛠️ FIX 3: Await the params before accessing the slug
+  const { slug } = await params;
 
-export default function DeveloperPage({ params }: PageProps) {
-  // Find the developer by slug matching your data.ts
-  const developer = developers.find((d) => d.slug === params.slug);
+  // Find the developer
+  const developer = developers.find((d) => d.slug === slug);
 
   if (!developer) {
+    // If no developer is found, trigger Next.js 404
     return notFound();
   }
+
+  // NOTE: You must also ensure generateStaticParams is exported for Vercel deployment.
+  // (This was included in a previous turn's code)
 
   return (
     <div className="bg-slate-50 min-h-screen pb-20">

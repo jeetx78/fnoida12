@@ -1,9 +1,16 @@
 import Link from "next/link";
 import { developers } from "@/lib/data";
+import ProjectCard from "./components/ProjectCard";
 
 export default function Home() {
   // Flatten projects for "Featured" section
-  const featuredProjects = developers.flatMap(d => d.projects).slice(0, 3);
+  const desiredProjectNames = [
+    "Gaur Chrysalis",           // Luxury in Yamuna Expressway
+    "M3M Jacob & Co",              // High-rise Luxury in Gurugram
+    "Ace Edit",            // Mid-range in Greater Noida West
+  ];
+  const allProjects = developers.flatMap(dev => dev.projects);
+  const featuredProjects = allProjects.filter(project => desiredProjectNames.includes(project.name));
 
   return (
     <div className="flex flex-col">
@@ -23,7 +30,7 @@ export default function Home() {
 
       {/* Developers Grid */}
       <section className="py-20 container mx-auto px-4">
-        <h2 className="text-3xl font-bold text-slate-800 mb-10 text-center">Top Developers in NCR</h2>
+        <h2 className="text-3xl font-bold text-slate-800 mb-10 text-center text-white">Top Developers in NCR</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {developers.map((dev) => (
             <Link key={dev.id} href={`/developers/${dev.slug}`} className="group p-6 bg-white border border-slate-100 shadow-sm hover:shadow-xl rounded-xl transition">
@@ -38,24 +45,22 @@ export default function Home() {
       {/* Quick Featured Listings */}
       <section className="py-20 bg-slate-50 border-t border-slate-200">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-10 text-center">Featured Opportunities</h2>
+          <h2 className="text-3xl font-bold mb-10 text-center text-black">Featured Opportunities</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-             {featuredProjects.map((project, idx) => (
-               <div key={idx} className="bg-white rounded-lg overflow-hidden shadow-md">
-                 <div className="h-48 bg-slate-300 relative">
-                   {/* Real image would go here */}
-                   <div className="absolute top-4 right-4 bg-blue-600 text-white text-xs px-2 py-1 rounded">Verified</div>
-                 </div>
-                 <div className="p-5">
-                   <h4 className="font-bold text-lg">{project.name}</h4>
-                   <p className="text-slate-500 text-sm mb-2">{project.location}</p>
-                   <p className="text-blue-900 font-bold">{project.price}</p>
-                 </div>
-               </div>
-             ))}
-          </div>
-        </div>
-      </section>
+            {featuredProjects.map((project, idx) => (
+              <ProjectCard
+              key={idx}
+              name={project.name}
+              location={project.location}
+              price={project.price}
+              type={project.type}
+              image={project.image}
+              developerName={developers.find(d => d.projects.includes(project))?.name || 'Top Seller'}
+         />
+       ))}
     </div>
+  </div>
+</section>
+      </div>
   );
 }

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image"; // Image is now used for logos
 // Go up 2 levels: developers -> app -> src -> then into lib
 import { developers } from "../../lib/data";
 import { Building2, ArrowRight, MapPin } from "lucide-react";
@@ -27,9 +28,22 @@ export default function DevelopersIndex() {
               href={`/developers/${dev.slug}`}
               className="group bg-white rounded-2xl border border-slate-200 overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col h-full"
             >
-              {/* Card Header */}
+              {/* Card Header - Logo Integration */}
               <div className="h-32 bg-slate-100 relative flex items-center justify-center border-b border-slate-100 group-hover:bg-blue-50 transition-colors">
-                <Building2 size={48} className="text-slate-300 group-hover:text-blue-200 transition-colors" />
+                
+                {dev.logoImage ? (
+                    <Image 
+                        src={dev.logoImage} 
+                        alt={`${dev.name} Logo`} 
+                        width={120} 
+                        height={60} 
+                        className="object-contain"
+                    />
+                ) : (
+                    // Fallback icon if logoImage property is not set or empty
+                    <Building2 size={48} className="text-slate-300 group-hover:text-blue-200 transition-colors" />
+                )}
+                
                 <div className="absolute top-4 right-4 bg-white px-3 py-1 rounded-full text-xs font-bold text-slate-600 shadow-sm border border-slate-100">
                   {dev.projects.length} Active Projects
                 </div>
